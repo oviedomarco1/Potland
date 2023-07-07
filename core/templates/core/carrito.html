@@ -1,0 +1,65 @@
+{% extends 'core/base-index.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}"/>
+{% endblock %}
+
+{% block head %}
+<script src="{% static 'js/funciones.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="products">
+        <div class="container">
+            <h1 class="lg-title">Tu Carrito</h1>
+            <p class="text-light">Tu compra es protegida por sistemas de seguridad que están en constante actualización para la protección de tus datos personales.</p>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Detalle</th>
+                        <th>Imagen</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in carro %}
+                        <tr>
+                            <td>{{ item.0 }}</td>
+                            <td>{{ item.1 }}</td>
+                            <td><img src="{{ item.2 }}" alt=""></td>
+                            <td>{{ item.3 }}</td>
+                            <td>{{ item.4 }}</td>
+                            <td>{{ item.5 }}</td>
+                            <td>
+                                <a href="{% url 'dropitem' item.0 %}">
+                                    <img src="{% static 'img/icons8-goma-de-borrar-64.png' %}" alt="">
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    
+            
+            {% if not carro %}
+            <h2 style="width: 100%; text-align: center; margin: 30px;">Tu carrito está vacío.</h2>
+            {% else %}
+            <div class="comprar">
+                <a href="{% url 'comprar' %}">Comprar</a>
+            </div>
+            {% endif %}
+        </div>
+
+        
+    </div>
+
+
+{% endblock %}
+</body>
+</html>

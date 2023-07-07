@@ -1,0 +1,302 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PotLand</title>
+    {% block css %}
+
+    {% endblock %}
+    
+    {% block head %}
+    
+    {% endblock %}
+    <!--FontAwesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <!--Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+    <!--Fuente de Google-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap for Modal CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </head>
+    <body>
+        <!-- inicio modal popup -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¡5% Dcto. en tu primera compra al registrarte!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Para obtener este beneficio dirigete a <b>Suscríbete</b> en el menú principal 😎</p>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- fin modal popup -->
+        <div class="header">
+        <div class="menu-bar">
+            <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}"
+                ><img src="{% static 'img/icons8-planta-en-maceta-40.png'%}" /> PotLand</a
+                >
+
+                <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                >
+                <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    {% if user.is_authenticated and user.is_staff%}
+                        {{user.username}}
+                        {% if suscrito %}
+                            Suscrito 🎖️
+                        {% else %}
+                            Sin Suscribir 🙁
+                        {% endif %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Productos
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'products' %}">Maceteros</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'tierra' %}">Tierra de Hojas</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'flores' %}">Flores</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'arbustos' %}">Arbustos</a>
+                                </li>
+                            </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'carrito' %}">Carrito</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#scrollspyHeading2">Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'suscribir' %}">Suscribirse</a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'historial_compra' %}">Seguimiento</a>
+                            </li>
+                        <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+                        {% elif user.is_authenticated and not user.is_staff%}
+                        {{user.username}}
+                        {% if suscrito %}
+                            Suscrito 🎖️
+                        {% else %}
+                            Sin Suscribir 🙁
+                        {% endif %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Productos
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'products' %}">Maceteros</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'tierra' %}">Tierra de Hojas</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'flores' %}">Flores</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'arbustos' %}">Arbustos</a>
+                                </li>
+                            </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'carrito' %}">Carrito</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#scrollspyHeading2">Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'suscribir' %}">Suscribirse</a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'historial_compra' %}">Seguimiento</a> 
+                            </li>
+                        <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+                    {% else %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="{% url 'products' %}">Maceteros</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'tierra' %}">Tierra de Hojas</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'flores' %}">Flores</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'arbustos' %}">Arbustos</a>
+                            </li>
+                        </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading2">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading3">Seguimiento</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'suscribir' %}">Suscribirse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'carrito' %}">Carrito</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'registro' %}">Registrarse</a>
+                        </li>
+                        
+                    {% endif %}
+                    
+                </ul>
+                </div>
+            </div>
+            </nav>
+        </div>
+        </div>
+
+        {% block content %}
+        
+        {% endblock  %}
+        <div id="footer">
+            <div class="suscripcion">
+                <h4 id="suscipcion-id" class="suscipcion-titulo">
+                ¡Suscribete y recibirás 5% Dcto. en tu primera compra!
+                </h4>
+                <form class="row g-3">
+                <div class="sus-nombre col-md-4">
+                    <label for="validationDefault01" class="form-label">Nombre</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="validationDefault01"
+                    value=""
+                    placeholder="Ej: Juanito"
+                    required
+                    />
+                </div>
+                <div class="col-md-4">
+                    <label for="validationDefault02" class="form-label">Apellido</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="validationDefault02"
+                    value=""
+                    placeholder="Ej: Perez"
+                    required
+                    />
+                </div>
+                <div class="col-md-6 col-lg-8">
+                    <label for="validationDefault03" class="form-label">Correo electrónico</label>
+                    <input type="text" class="form-control" id="validationDefault03" placeholder="nombre@correo.com" required/>
+                </div>
+                <div class="terminos">
+                    <div class="form-check">
+                    <input
+                        class="form-check-input" type="checkbox" value="" id="invalidCheck2" required/>
+                    <label class="form-check-label" for="invalidCheck2">
+                        Aceptar terminos y condiciones.
+                    </label>
+                    <p class="terminos-desc">
+                        *Al suscribirse acepta recibir ofertas y mensajes de nuevos
+                        productos a su correo electrónico.
+                    </p>
+                    </div>
+                </div>
+                <div class="suscripcion-btn">
+                    <button class="btn btn-primary" type="button" data-bs-target="#suscripcion-index" data-bs-toggle="modal">Suscribirse</button>
+                </div>
+                </form>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="suscripcion-index" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">¡Felicidades!🥳</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ¡Usted se ha suscrito exitosamente! <br> Ahora comenzará a recibir ofertas y noticias periodicamente
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- javascript -->
+            <script
+                src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+                integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+                crossorigin="anonymous">
+            </script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+                integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+                crossorigin="anonymous">
+            </script>
+            {% block js %}
+            
+            {% endblock %}
+            
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,160 @@
+{% extends 'core/base-index.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/seller.css' %}">
+{% endblock %}
+
+{% block head %}
+<script src="{% static 'js/funciones.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <!-- Inicio de Offcanvas -->
+  <div class="container-offcanvas">
+    <button class="btn-offcanvas-1 btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"> Menú desplegable</button>
+    
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Items</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="titulo-ventas offcanvas-body">
+        <p>Ventas</p>
+        <a href="{% url 'seguimiento' %}">Seguimiento</a>
+        <a href="{% url 'compras' %}">Historial de Compras</a>
+        <a href="" data-bs-target="#exampleModal" data-bs-toggle="modal">Anular Suscripción</a>
+      </div>
+    </div>
+  </div>
+  <!-- Fin de Offcanvas -->
+  <!-- inicio dropdown con las ventas -->
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Despacho #001
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <!-- Inicio Card Section -->
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'img/macetero/macetero-5.jpg' %}" class="card-img-top" alt="..." >
+                <div class="card-body">
+                  <h5 class="card-title">Pedido #PL001</h5>
+                  <p class="card-text">Region: Metropolitana <br> Comuna: Melipilla <br> Persona: Diego Chávez <br> Fono: +5694123123</p>
+                  <a href="{% url 'seguimiento' %}" class="btn btn-primary">Ir a Despacho</a>
+                </div>
+              </div>
+            <!-- Fin Card Section -->
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Despacho #002
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <!-- Inicio Card Section -->
+            <div class="card" style="width: 18rem;">
+              <img src="{% static 'img/macetero/macetero-5.jpg' %}" class="card-img-top" alt="..." >
+              <div class="card-body">
+                <h5 class="card-title">Pedido #PL002</h5>
+                <p class="card-text">Region: Metropolitana <br> Comuna: Melipilla <br> Persona: Diego Chávez <br> Fono: +5694123123</p>
+                <a href="{% url 'seguimiento' %}" class="btn btn-primary">Ir a Despacho</a>
+              </div>
+            </div>
+          <!-- Fin Card Section -->
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Despacho #003
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <!-- Inicio Card Section -->
+            <div class="card" style="width: 18rem;">
+              <img src="{% static 'img/macetero/macetero-5.jpg' %}" class="card-img-top" alt="..." >
+              <div class="card-body">
+                <h5 class="card-title">Pedido #PL003</h5>
+                <p class="card-text">Region: Metropolitana <br> Comuna: Melipilla <br> Persona: Diego Chávez <br> Fono: +5694123123</p>
+                <a href="{% url 'seguimiento' %}" class="btn btn-primary">Ir a Despacho</a>
+              </div>
+            </div>
+          <!-- Fin Card Section -->
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+              Despacho #004
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <!-- Inicio Card Section -->
+            <div class="card" style="width: 18rem;">
+              <img src="{% static 'img/macetero/macetero-5.jpg' %}" class="card-img-top" alt="..." >
+              <div class="card-body">
+                <h5 class="card-title">Pedido #PL004</h5>
+                <p class="card-text">Region: Metropolitana <br> Comuna: Melipilla <br> Persona: Diego Chávez <br> Fono: +5694123123</p>
+                <a href="{% url 'seguimiento' %}" class="btn btn-primary">Ir a Despacho</a>
+              </div>
+            </div>
+          <!-- Fin Card Section -->
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+              Despacho #005
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <!-- Inicio Card Section -->
+            <div class="card" style="width: 18rem;">
+              <img src="{% static 'img/macetero/macetero-5.jpg' %}" class="card-img-top" alt="..." >
+              <div class="card-body">
+                <h5 class="card-title">Pedido #PL005</h5>
+                <p class="card-text">Region: Metropolitana <br> Comuna: Melipilla <br> Persona: Diego Chávez <br> Fono: +5694123123</p>
+                <a href="{% url 'seguimiento' %}" class="btn btn-primary">Ir a Despacho</a>
+              </div>
+            </div>
+          <!-- Fin Card Section -->
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- fin dropdown con ventas -->
+  <!-- inicio cancelar suscripcion (modal) -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Anular Suscripción</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        La suscripción ha sido cancelada exitosamente <br> Ya no recibirá noticias ni promociones 😕
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- fin cancelar suscripcion (modal) -->
+{% endblock %}

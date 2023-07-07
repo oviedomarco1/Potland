@@ -1,0 +1,60 @@
+{% extends 'core/base-index.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}"/>
+{% endblock %}
+
+{% block head %}
+<script src="{% static 'js/funciones.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="products">
+        <div class="container">
+            <h1 class="lg-title">Nuestros Productos</h1>
+            <p class="text-light">Nuestros productos naturales son cuidadosamente protegidos desde la germinación hasta la etapa de ventas</p>
+        </div>
+        {% for k in arbustos %}
+        <div class="product-items">
+            <!-- single product -->
+            <div class="product">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="{{ k.imagen }}" alt="">
+                    </div >
+                    <div class="product-btns">
+                        <button type="button" class="btn-cart"> <a href="{% url 'addtocar' k.codigo %}">carrito </a><span><i class="fa-regular fa-plus"></i></span></button>
+                        <button type="button" class="btn-buy">comprar <span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-info-top">
+                        <h2 class="sm-title">{{ k.detalle }}</h2>
+                        <div class="rating">
+                            <span><i class="fa-solid fa-star"></i></span>
+                            <span><i class="fa-solid fa-star"></i></span>
+                            <span><i class="fa-solid fa-star"></i></span>
+                            <span><i class="fa-solid fa-star"></i></span>
+                            <span><i class="fa-regular fa-star"></i></span>
+                        </div>
+                    </div>
+                    <a href="#" class="product-name">Macetas Jardin Casa</a>
+                    <p class="product-price">{{ k.tachado }}</p>
+                    <p class="product-price">${{ k.precio }}</p>
+                    <p class="stock-products">{{ k.stock }}</p>
+                </div>
+
+                <div class="off-info">
+                    <h2 class="sm-title">{{ k.descuento }}</h2>
+                </div>
+            </div>
+            <!-- end of single product -->
+        
+        {% endfor %}
+    </div>
+</div>   
+
+
+{% endblock %}

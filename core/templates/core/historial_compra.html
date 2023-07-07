@@ -1,0 +1,52 @@
+{% extends 'core/base-index.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}"/>
+{% endblock %}
+
+{% block head %}
+<script src="{% static 'js/funciones.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="products">
+        <div class="container">
+            <h1 class="lg-title">Seguimiento de Compra</h1>
+            <p class="text-light">Acá las compras que has realizado.</p>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>fecha</th>
+                        <th>cliente</th>
+                        <th>estado_envio</th>
+                        <th>total</th>
+                        <th>Ir a...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for item in compras %}
+                      <tr>
+                          <td>{{ item.id }}</td>
+                          <td>{{ item.fecha }}</td>
+                          <td>{{ item.cliente }}</td>
+                          <td>{{ item.estado_envio }}</td>
+                          <td>{{ item.total }}</td>
+                          <td><a href="{% url 'detalle' item.id %}" class="custom-button">Detalle de venta</a></td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+              
+            </table>
+    
+            
+            
+        </div>
+
+        
+    </div>
+
+
+{% endblock %}

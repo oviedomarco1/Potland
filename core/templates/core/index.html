@@ -1,0 +1,153 @@
+{% extends 'core/base-index.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+{% endblock %}
+
+{% block head %}
+<script src="{% static 'js/funciones.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <!--Carousel-->
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active d-item">
+          <img
+            src="{% static 'img/carousel-3.jpg'%}"
+            class="d-block w-100 d-img"
+            alt="slide 1"
+          />
+          <div class="carousel-caption top-0 mt-4">
+            <h1 class="display-1 fw-bolder text-capitalize">
+              Visita nuestros productos
+            </h1>
+          </div>
+        </div>
+        <div class="carousel-item d-item">
+          <img
+            src="{% static 'img/carousel-4.jpg'%}"
+            class="d-block w-100 d-img"
+            alt="slide 1"
+          />
+          <div class="carousel-caption top-0 mt-4">
+            <h1 class="display-1 fw-bolder text-capitalize">
+              De vecinos hacia una buena causa
+            </h1>
+          </div>
+        </div>
+        <div class="carousel-item d-item">
+          <img
+            src="{% static 'img/carousel-5.jpg'%}"
+            class="d-block w-100 d-img"
+            alt="slide 1"
+          />
+          <div class="carousel-caption top-0 mt-4">
+            <h1 class="display-1 fw-bolder text-capitalize">
+              Suscribete para descuentos
+            </h1>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!--Nosotros-->
+    <div class="article">
+      <h4 id="scrollspyHeading2" class="nosotros fw-bolder">
+        Conoce nuestra iniciativa
+      </h4>
+      <div class="nosotros-img">
+        <img src="{% static 'img/icons8-grupos-de-usuarios-64.png'%}" alt="nosotros" />
+      </div>
+      <div class="nosotros-desc">
+        <p class="descrip">
+          Bienvenidos a Potland Jardín Solidario. Somos un grupo de vecinos comprometidos con el cuidado del medio ambiente y
+           el apoyo a causas benéficas. A través de nuestra iniciativa, nos esforzamos por proporcionar productos para jardinería
+            de calidad mientras colaboramos con una fundación sin fines de lucro.
+            Nuestra historia comenzó cuando algunos de nosotros decidimos unir fuerzas para contribuir a nuestra comunidad y hacer 
+            una diferencia positiva en la vida de quienes nos rodean. Iniciamos vendiendo productos como maceteros, tierra de hojas, 
+            flores y arbustos, todo cultivado y seleccionado con cariño por nuestros miembros.
+        </p>
+        <img src="{% static 'img/quienes-1.jpg'%}" alt="" class="nosotros-imagen col-sm-4" />
+      </div>
+    </div>
+    <!--Seguimiento-->
+    <div class="article-seguimiento">
+      <h4 id="scrollspyHeading3" class="article-titulo text-capitalize">
+        Rastrea tu compra
+      </h4>
+      <div class="imagen-camion">
+        <img
+          src="{% static 'img/camion-de-reparto.png'%}"
+          alt="delivery"
+          class="camion-reparto"
+        />
+      </div>
+      <div class="seguimiento input-group mb-3">
+        <input
+          type="text"
+          class="seguimiento-input form-control"
+          placeholder="Ingrese orden de seguimiento"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+        <button
+          class="seguimiento-btn btn-outline-secondary"
+          type="button"
+          id="button-addon2"
+        >
+          <img src="{% static 'img/buscar.png'%}" alt="" />
+        </button>
+      </div>
+    </div>
+    {% endblock %}
+
+    {% block js %}
+      <script>
+        $(document).ready(function() {
+          $('#myModal').modal('show');
+        });
+      </script>   
+    {% endblock %}
+    <!-- Script Modal -->
+    

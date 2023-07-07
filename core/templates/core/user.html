@@ -1,0 +1,52 @@
+{% extends 'core/base-index.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/seller.css' %}">
+{% endblock %}
+
+{% block head %}
+<script src="{% static 'js/funciones.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+
+  <!-- Inicio de Offcanvas -->
+  <div class="container-offcanvas">
+    <button class="btn-offcanvas-1 btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"> Menú desplegable</button>
+    
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Items</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="titulo-ventas offcanvas-body">
+        <p>Ventas</p>
+        <a href="{% url 'seguimiento' %}">Seguimiento</a>
+        <a href="{% url 'compras'%}">Historial de Compras</a>
+        <a href="" data-bs-target="#exampleModal" data-bs-toggle="modal">Anular Suscripción</a>
+      </div>
+    </div>
+  </div>
+  <!-- Fin de Offcanvas -->
+<!-- inicio cancelar suscripcion (modal) -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Anular Suscripción</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        La suscripción ha sido cancelada exitosamente <br> Ya no recibirá noticias ni promociones 😕
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

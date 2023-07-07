@@ -1,0 +1,227 @@
+
+/*Navbar*/
+.menu-bar{
+  background: linear-gradient(45deg, #8fbdd3, #53a1b8);
+}
+
+.nav-link{
+    font-size: 16px;
+    margin: 3px;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+.nav-bar{
+    text-align: right;
+    margin-right: 20px;
+}
+.menu-bar .navbar-toggler{
+    margin-right: 5px;
+    outline: none!important;
+    border: none!important;
+}
+.navbar .fa{
+    color: #FFFFFF !important;
+    font-size: 26px;
+}
+
+.navbar-brand{
+    width: 150px;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-family: 'Satisfy', cursive;
+}
+
+@media only screen and (max-width: 1000px){
+    .nav-link:hover{
+        border-bottom: none!important;
+    }
+}
+/* fin navbar */
+
+/* estilo para login y registro (contenedores) */
+#formularios {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 100px 0px;
+    background-color: #239bd743;
+  }
+  
+  .signup-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 100px 0px 100px;
+    
+  }
+  
+  .T1,.T2 {
+    color: #333;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .lab-1-mail,.lab-2-contr,.lab-1-nombres,.lab-2-ape,.lab-mail-2,.lab-2-tel,.lab-2-conf-contr {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+  }
+  
+  .form-control {
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    padding: 15px;
+    width: 100%;
+  }
+  
+  .b1,.b2 {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px;
+    text-transform: uppercase;
+  }
+  
+  .b1:hover,.b2:hover {
+    background-color: #111;
+  }
+  
+  .terminos {
+    margin-top: 0px;
+    text-align: start;
+  }
+  
+  .form-check-label {
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 5px;
+  }
+  
+  .terminos-desc {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+
+  /* login */
+  .login-1 {
+    flex-basis: 45%;
+  }
+  
+  .i1,.i2 {
+    margin-bottom: 0;
+  }
+  
+  .btn-ingresar {
+    display: block;
+    margin-top: 20px;
+  }
+  
+  /* registro */
+  .registro-1 {
+    flex-basis: 50%;
+  }
+  
+  .i5,.i6,.i7 {
+    margin-bottom: 0;
+  }
+  
+  .form-check-input {
+    margin: 0;
+  }
+
+  
+  @media screen and (max-width: 768px) {
+    #formularios {
+      flex-wrap: wrap;
+    }
+    
+    .login-1,.registro-1 {
+      flex-basis: 100%;
+    }
+  }
+
+.error{
+  background-color: #f85b5b;
+}
+
+/*Suscripcion*/
+#footer{
+  background-color: #239bd743;
+  
+}
+.suscripcion .suscipcion-titulo{
+  display: flex;
+  padding: 100px 50px 100px 50px;
+  justify-content: center;
+  font-size: 40px;
+  text-align: center;
+  }
+.suscripcion .row{
+  display: flex;
+  justify-content: center;
+}
+.terminos{
+  display: flex;
+  justify-content: center;
+}
+
+.suscripcion-btn{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 150px;
+}
+.form-check .terminos-desc{
+  font-size: 12px;
+}
+@media screen and (max-width: 600px) {
+  .suscripcion{
+      margin-left: 20px;
+      margin-right: 20px;
+  }
+}
+@media screen and (max-width: 992px) {
+.suscripcion{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+}
+
+.comprar{
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.comprar > a{
+  line-height: 50px;
+  background-color: #445963;
+  color: #FFFFFF;
+  width: 200px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.comprar > a:hover{
+  background-color: #152a34;
+  text-decoration: none;
+  color: #FFFFFF;
+}

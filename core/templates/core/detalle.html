@@ -1,0 +1,48 @@
+{% extends 'core/base-index.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}"/>
+{% endblock %}
+
+{% block head %}
+<script src="{% static 'js/funciones.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="products">
+        <div class="container">
+            <h1 class="lg-title">Historial</h1>
+            <p class="text-light">Acá puedes dar información adicional de tu compra.</p>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Ir a...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for detalle in detalles %}
+                      <tr>
+                          <td>{{ detalle.producto }}</td>
+                          <td>{{ detalle.cantidad }}</td>
+                          <td>{{ detalle.precio }}</td>
+                          <td><a href="{% url 'historial_compra' %}" class="custom-button">Historial</a></td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+              
+            </table>
+    
+            
+            
+        </div>
+
+        
+    </div>
+
+
+{% endblock %}
